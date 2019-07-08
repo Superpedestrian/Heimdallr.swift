@@ -222,7 +222,7 @@ public let HeimdallrErrorNotAuthorized = 2
         if let accessToken = accessToken {
             if let expiration = accessToken.expiresAt, expiration < Date() {
                 if let refreshToken = accessToken.refreshToken {
-                    requestAccessToken(grant: .refreshToken(refreshToken)) { result in
+                    requestAccessToken(grant: .refreshToken(refreshToken), contentType: "application/json") { result in
                         completion(result.analysis(ifSuccess: { accessToken in
                             let authenticatedRequest = self.authenticateRequest(request, accessToken: accessToken)
                             return .success(authenticatedRequest)
