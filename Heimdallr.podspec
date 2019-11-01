@@ -18,22 +18,14 @@ Pod::Spec.new do |spec|
   spec.description = 'Heimdallr is an OAuth 2.0 client specifically designed for easy usage. It currently supports the resource owner password credentials grant flow, refreshing an access token as well as extension grants.'
 
   spec.ios.deployment_target = '9.0'
-  spec.osx.deployment_target = '10.9'
+  spec.osx.deployment_target = '10.10'
 
   spec.default_subspec = 'Core'
 
   spec.subspec 'Core' do |subspec|
-    subspec.dependency 'Result', '~> 3.0'
+    subspec.dependency 'Result', '~> 4.1.0'
     subspec.framework = 'Foundation'
 
-    subspec.source_files = 'Heimdallr/Core/*.swift'
-  end
-
-  spec.subspec 'ReactiveCocoa' do |subspec|
-    subspec.dependency 'Heimdallr/Core'
-    subspec.dependency 'ReactiveSwift', '~> 1.0'
-    subspec.dependency 'ReactiveObjCBridge', '~> 1.0'
-
-    subspec.source_files = 'Heimdallr/ReactiveCocoa/*.swift'
+    subspec.source_files = 'Heimdallr/*.swift'
   end
 end
